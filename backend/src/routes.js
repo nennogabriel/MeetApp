@@ -28,7 +28,7 @@ routes.get('/subscriptions', SubscriptionController.index);
 routes.post('/subscriptions/:id', SubscriptionController.store);
 routes.delete('/subscriptions/:id', SubscriptionController.delete);
 
-routes.get('/dashboard', DashboardController.show)
+routes.get('/dashboard', DashboardController.show);
 
 routes.post('/files', upload.single('file'), FileController.store);
 export default routes;

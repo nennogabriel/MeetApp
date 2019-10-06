@@ -14,7 +14,7 @@ import Subscription from '../models/Subscription';
 
 class MeetupController {
   async index(req, res) {
-    const where = { user_id: { [Op.not]: req.userId }};
+    const where = { user_id: { [Op.not]: req.userId } };
     const page = req.query.page || 1;
     const perPage = 10;
 

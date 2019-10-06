@@ -6,7 +6,7 @@ class Subscription extends Model {
       {},
       {
         sequelize,
-      }
+      },
     );
   }
 
