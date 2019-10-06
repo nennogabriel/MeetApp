@@ -14,7 +14,7 @@ import Subscription from '../models/Subscription';
 
 class MeetupController {
   async index(req, res) {
-    const where = {};
+    const where = { user_id: { [Op.not]: req.userId }};
     const page = req.query.page || 1;
     const perPage = 10;
 
@@ -24,14 +24,6 @@ class MeetupController {
       where.date = {
         [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)],
       };
-    }
-
-    if (req.query.only) {
-      if (req.query.only === 'mine') {
-        where.user_id = req.userId;
-      } else {
-        where.user_id = { [Op.not]: req.userId };
-      }
     }
 
     const meetups = await Meetup.findAll({
@@ -82,7 +74,7 @@ class MeetupController {
   async update(req, res) {
     const meetup = await Meetup.findByPk(req.params.id);
     if (!meetup) {
-      return res.status(404).json({ error: 'Meetup não encontrado.' });
+      return res.status(404).json({ error: 'Meetup not found.' });
     }
     if (req.userId !== meetup.user_id) {
       return res

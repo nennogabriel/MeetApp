@@ -5,6 +5,7 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import MeetupController from './app/controllers/MeetupController';
 import SubscriptionController from './app/controllers/SubscriptionController';
+import DashboardController from './app/controllers/DashboardController';
 
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multerConfig';
@@ -26,6 +27,8 @@ routes.delete('/meetups/:id', MeetupController.delete);
 routes.get('/subscriptions', SubscriptionController.index);
 routes.post('/subscriptions/:id', SubscriptionController.store);
 routes.delete('/subscriptions/:id', SubscriptionController.delete);
+
+routes.get('/dashboard', DashboardController.show)
 
 routes.post('/files', upload.single('file'), FileController.store);
 export default routes;

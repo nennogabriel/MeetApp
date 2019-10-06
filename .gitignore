@@ -61,5 +61,5 @@ typings/
 .next
 
 # uploads folder
-tmp/uploads/*
+*/tmp/uploads/*
 !tmp/uploads/.gitkeep
