@@ -11,8 +11,11 @@ porém os arquivos deste repositório que está lendo contém todo o conteúdo n
 
 # Instruções de Instalação:
 
+App desenvolvido com as tecnologias NodeJS, ReactJS e React Native.
+Necessário a instalação do `yarn` como gerenciador de pacotes.
+
 ## Backend:
-O projeto foi feito com postgress e redis em docker local
+O projeto foi feito com ***postgress*** e ***redis*** em ***docker*** local
 
 siga as instruções a partir da pasta ***./backend/***
 
@@ -40,6 +43,9 @@ App React JS. Apenas desenvolvimento local. Ele usa o backend para a api em http
     ```bash
     yarn start
     ```
+## Mobile:
+
+
 
 
 
