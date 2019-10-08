@@ -28,15 +28,15 @@ export default function Dashboard() {
       ) : (
         <ul>
           {meetups.map(meetup => (
-            <li key={String(meetup.id)}>
-              <Meetup to={`/detail/${meetup.id}`} past={meetup.past.toString()}>
+            <Meetup key={String(meetup.id)} past={meetup.past}>
+              <Link to={`/detail/${meetup.id}`}>
                 <strong>{meetup.title}</strong>
                 <div>
                   <span>{meetup.dateFormatted}</span>
                   <MdChevronRight size={20} color="#fff" />
                 </div>
-              </Meetup>
-            </li>
+              </Link>
+            </Meetup>
           ))}
         </ul>
       )}

@@ -5,7 +5,7 @@ import { useField } from '@rocketseat/unform';
 import { Container } from './styles';
 import api from '~/services/api';
 
-import holderImg from '~/assets/imageHold.jpg';
+import camera from '~/assets/camera.svg';
 
 function BannerInput({ currentUrl }) {
   const { defaultValue, registerField } = useField('file');
@@ -41,10 +41,8 @@ function BannerInput({ currentUrl }) {
   }
 
   return (
-    <Container>
-      <label htmlFor="file">
-        <img src={preview || holderImg} alt="" />
-
+    <Container hasThumbnail={Boolean(preview)}>
+      <label htmlFor="file" style={{ backgroundImage: `url(${preview})` }}>
         <input
           type="file"
           id="file"
@@ -53,6 +51,10 @@ function BannerInput({ currentUrl }) {
           onChange={handleChange}
           ref={ref}
         />
+        <div>
+        <img src={camera} alt="Select img" />
+        <span>Selecionar Imagem</span>
+        </div>
       </label>
     </Container>
   );
@@ -62,4 +64,8 @@ export default BannerInput;
 
 BannerInput.propTypes = {
   currentUrl: PropTypes.string,
+};
+
+BannerInput.defaultProps = {
+  currentUrl: null,
 };

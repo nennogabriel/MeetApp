@@ -35,15 +35,17 @@ function Details({ match, history }) {
     <Container>
       <header>
         <h1>{meetup.title}</h1>
-        <div>
-          <button type="button" className="edit" onClick={handleEdit}>
-            <MdEdit size={16} /> Editar
-          </button>
-          <button type="button" className="cancel" onClick={handleCancel}>
-            <MdCancel size={16} />
-            Cancel
-          </button>
-        </div>
+        {!meetup.past && (
+          <div>
+            <button type="button" className="edit" onClick={handleEdit}>
+              <MdEdit size={16} /> Editar
+            </button>
+            <button type="button" className="cancel" onClick={handleCancel}>
+              <MdCancel size={16} />
+              Cancel
+            </button>
+          </div>
+        )}
       </header>
       <main>
         <img src={meetup.File ? meetup.File.url : holderImg} alt="" />

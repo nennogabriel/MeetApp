@@ -6,7 +6,7 @@ export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
   * {
-    margin:0;
+    margin: 0;
     padding: 0;
     outline: 0;
     border: 0;
@@ -17,7 +17,9 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     height: 100%;
+    font-size: 14px;
   }
 
   html {
@@ -29,7 +31,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: Roboto, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
   }
 
   a {

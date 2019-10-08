@@ -41,7 +41,8 @@ export const Content = styled.div`
 export const Profile = styled.div`
   display: flex;
   padding-left: 20px;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: bold;
 
   div {
     text-align: right;
@@ -55,7 +56,7 @@ export const Profile = styled.div`
     a {
       display: block;
       margin-top: 2px;
-      font-size: 12px;
+      font-size: 14px;
       color: #aaa;
     }
   }

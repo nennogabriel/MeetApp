@@ -31,11 +31,12 @@ class MeetupController {
       include: [
         { model: User, attributes: ['name', 'email'] },
         { model: File, attributes: ['name', 'path', 'url'] },
-        { model: Subscription, where: { user_id: req.userId } },
       ],
       limit: perPage,
       offset: perPage * page - perPage,
     });
+
+    console.log( where)
     return res.json(meetups);
   }
 
@@ -96,7 +97,7 @@ class MeetupController {
 
     if (meetup.past) {
       return res
-        .status(400)
+        .status(401)
         .json({ error: 'can delete past meetups... (Y) have you?' });
     }
 

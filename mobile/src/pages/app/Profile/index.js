@@ -118,7 +118,7 @@ export default function Profile() {
           />
 
           <SubmitButton onPress={handleSubmit}>Atualizar Perfil</SubmitButton>
-          <LogoutButton onPress={handleLogout}>Sair do GoBarber</LogoutButton>
+          <LogoutButton onPress={handleLogout}>Sair do MeetApp</LogoutButton>
         </Form>
       </Container>
     </Background>

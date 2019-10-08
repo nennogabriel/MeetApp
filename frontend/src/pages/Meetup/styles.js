@@ -15,8 +15,8 @@ export const Container = styled.div`
     textarea {
       background: rgba(0, 0, 0, 0.1);
       padding: 14px 18px;
-      color: #eee;
       border-radius: 6px;
+      color: #999;
 
       &::placeholder {
         color: #999;

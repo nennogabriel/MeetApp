@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Alert } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, MeetupList, EnptyList, EnptyListText } from './styles';
 import Meetup from '~/components/Meetup';
 import api from '~/services/api';
 
-export default function Subscriptions() {
+function Subscriptions({isFocused}) {
   const [meetups, setMeetups] = useState([]);
 
   useEffect(() => {
@@ -15,19 +16,20 @@ export default function Subscriptions() {
       setMeetups(response.data);
     }
     loadMeetups();
-  }, []);
+  }, [isFocused]);
 
   const handleSubscriptionCancel = useCallback(id => {
     async function subscribeTo() {
       try {
         await api.delete(`subscriptions/${id}`);
         Alert.alert('Success', ' Você se desincreveu no evento!');
+        setMeetups(meetups.filter(meetup => meetup.id !== id))
       } catch (err) {
-        Alert.alert('Error', ' Você sua inscrição não foi encontrada');
+        Alert.alert('Error', ' Sua inscrição não foi encontrada');
       }
     }
     subscribeTo();
-  }, []);
+  }, [meetups]);
 
   return (
     <Container>
@@ -60,3 +62,5 @@ Subscriptions.navigationOptions = {
     <Icon name="local-offer" size={20} color={option.tintColor} />
   ),
 };
+
+export default withNavigationFocus(Subscriptions);

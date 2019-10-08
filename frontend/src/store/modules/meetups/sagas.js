@@ -35,9 +35,7 @@ export function* meetupCreate({ payload }) {
 
 function* meetupIndex() {
   try {
-    const response = yield call(api.get, '/meetups', {
-      params: { only: 'mine' },
-    });
+    const response = yield call(api.get, '/dashboard');
     const data = response.data.map(item => {
       return {
         ...item,

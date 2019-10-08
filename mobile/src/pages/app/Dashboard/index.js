@@ -46,7 +46,7 @@ export default function Dashboard() {
         await api.post(`subscriptions/${id}`);
         Alert.alert('Success', ' Você se increveu no evento!');
       } catch (err) {
-        Alert.alert('Error', ' Você já está inscrito neste evento');
+        Alert.alert('Error', ':( você não pode se inscrever no evento');
       }
     }
     subscribeTo();
@@ -84,7 +84,7 @@ export default function Dashboard() {
             <Meetup
               onPress={() => handleSubiscription(item.id)}
               data={item}
-              subscribed={Boolean(item.Subscriptions.length > 0)}>
+              subscribed={Boolean(item.Subscriptions)}>
               Realizar inscrição
             </Meetup>
           )}

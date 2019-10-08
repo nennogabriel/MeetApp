@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { darken } from 'polished';
 
 export const Header = styled.div`
@@ -28,33 +27,37 @@ export const Header = styled.div`
   }
 `;
 
-export const Meetup = styled(Link)`
-  background: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  transition: all linear 120ms;
+export const Meetup = styled.li`
+  opacity: ${props => props.past ? 0.5 : 1};
 
-  &:hover {
-    transform: translateX(2%);
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  div {
+  a {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #fff;
     display: flex;
     align-items: center;
-  }
-  span {
-    color: #ddd;
-    font-size: 14px;
-  }
+    justify-content: space-between;
+    font-size: 18px;
+    transition: all linear 120ms;
 
-  svg {
-    margin-left: 10px;
+    &:hover {
+      transform: translateX(2%);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+    span {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    svg {
+      margin-left: 10px;
+    }
   }
 `;
